@@ -1,0 +1,50 @@
+html, body {
+    font-family: arial;
+    font-size: 1.2rem;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    background: #1d1e20;
+}
+
+.brandBox {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.brandBox img {
+    width: 5rem;
+}
+
+.searchBox {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    color: white;
+}
+
+.searchBox div { 
+    margin: 0 50px;
+}
+
+.contentBox {
+
+}
+
+.ottorBox {
+
+}
+
+.companyBox {
+
+}
+
+.ottorInfo {
+    
+}
