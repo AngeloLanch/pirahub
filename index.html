@@ -15,16 +15,28 @@
                 <section class="searchBox">
                     <div>
                         <label>Ordem de exibição</label>
-                        <select>teste</select>
+                        <select name="select">
+                            <option value="signUpDate" selected>data de cadastro</option>
+                            <option value="followers">número de seguidores</option>
+                            <option value="repositoryQuantity">número de repositórios</option>
+                        </select>
                     </div>
                     <div>
-                        <label>Tipo de Perfil</label>
-                        <input type="checkbox">
-                        <input type="checkbox">
+                        <div>
+                            <p>Tipo de Perfil</p>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="user" name="user" >
+                            <label>usuário</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="organization" name="orgnaization">
+                            <label>organização</label>
+                        </div>
                     </div>
                     <div>
-                        <input type="text">
-                        <button type="button">Go</button>
+                        <input type="text" placeholder="Pesquisar...">
+                        <button type="button">Pesquisar</button>
                     </div>
                 </section>
             </header>

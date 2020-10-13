@@ -1,9 +1,12 @@
-html, body {
-    font-family: arial;
-    font-size: 1.2rem;
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+
+html, body {
+    font-family: arial;
+    font-size: 1.2rem;
 }
 
 .header {
@@ -34,17 +37,19 @@ html, body {
 }
 
 .contentBox {
-
+    background:  #7F7F7F;
+    height: 100vh;
+    display: flex;
 }
 
 .ottorBox {
-
+    background: chocolate;
 }
 
 .companyBox {
-
+    background: coral;
 }
 
 .ottorInfo {
-    
+    background: crimson;
 }
