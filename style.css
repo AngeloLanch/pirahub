@@ -9,47 +9,103 @@ html, body {
     font-size: 1.2rem;
 }
 
+img {
+    width: 5rem;
+    margin: 0 auto;
+}
+
 .header {
-    display: grid;
-    grid-template-columns: 1fr 5fr;
+    display: flex;
     background: #1d1e20;
+    flex-direction: column;
 }
 
 .brandBox {
-    display: flex;
-    justify-content: center;
-    padding: 10px 0;
+    margin: 5px auto;
 }
 
-.brandBox img {
-    width: 5rem;
-}
+/*.brandBox */
 
 .searchBox {
     display: flex;
-    justify-content: end;
-    align-items: center;
     color: white;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-.searchBox div { 
-    margin: 0 50px;
+.filters { 
+    margin: 10px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.filterName {
+    margin: 10px;
+}
+
+.checkbox {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 20px;
+}
+
+.checkbox > div {
+    margin: 0 5px;
 }
 
 .contentBox {
-    background:  #7F7F7F;
+    background: #7F7F7F;
     height: 100vh;
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-.ottorBox {
+.authorBox {
     background: chocolate;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.companyBox {
+.authorBox section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+}
+
+.companyInfo {
     background: coral;
 }
 
-.ottorInfo {
+.authorInfo {
     background: crimson;
+}
+
+.usersBox {
+    border: 4px solid black;
+    margin: 0 auto;
+    padding: 80px 50px 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: center;
+}
+
+.usersBox > div {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    border: 1px solid black;
+    border-radius: 1em;
+    overflow: hidden;
+}
+
+.usersBox > div img {
+    display: block;
+}
+
+.usersBox > div p {
 }
