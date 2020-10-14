@@ -97,11 +97,22 @@ img {
     text-align: center;
     margin-bottom: 45px;
     padding: 0 15px;
-    /* overflow: hidden; */
 }
 
 .userBox img {
     margin: 0;
+}
+
+@media (min-width: 550px) {
+    .userBox p {
+        padding-left: 20px;
+    }
+}
+
+@media (min-width: 550px) and (max-width: 1000px) {
+    .authorBox {
+        flex-wrap: nowrap;
+    }
 }
 
 @media (min-width: 1000px) {
@@ -113,13 +124,12 @@ img {
     }
 
     .resultsBox {
-        display: block;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         order: 2;
     }
-}
 
-@media (min-width: 550px) and (max-width: 1000px) {
-    .authorBox {
-        flex-wrap: nowrap;
+    .userBox {
+        flex-direction: initial;
     }
 }
