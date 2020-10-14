@@ -57,11 +57,8 @@ img {
 }
 
 .contentBox {
-    background: #7F7F7F;
-    height: 100vh;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
 }
 
 .authorBox {
@@ -70,10 +67,11 @@ img {
     flex-wrap: wrap;
 }
 
-.authorBox section {
+.authorBox > div {
     display: flex;
     flex-direction: column;
     width: 100%;
+    padding: 45px;
     text-align: center;
 }
 
@@ -85,27 +83,43 @@ img {
     background: crimson;
 }
 
-.usersBox {
-    border: 4px solid black;
+.resultsBox {
     margin: 0 auto;
-    padding: 80px 50px 10px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    align-items: center;
+    padding: 80px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
-.usersBox > div {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    border: 1px solid black;
-    border-radius: 1em;
-    overflow: hidden;
+.userBox {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 45px;
+    padding: 0 15px;
+    /* overflow: hidden; */
 }
 
-.usersBox > div img {
-    display: block;
+.userBox img {
+    margin: 0;
 }
 
-.usersBox > div p {
+@media (min-width: 1000px) {
+    .authorBox {
+        display: block;
+    }
+    .contentBox {
+        flex-direction: initial;
+    }
+
+    .resultsBox {
+        display: block;
+        order: 2;
+    }
+}
+
+@media (min-width: 550px) and (max-width: 1000px) {
+    .authorBox {
+        flex-wrap: nowrap;
+    }
 }
