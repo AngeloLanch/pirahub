@@ -7,53 +7,53 @@
         <title>PiraHub</title>
     </head>
     <body>
-        <main>
-            <header class="header">
-                <div class="brandBox">
-                    <img src="./img/mg-girl.jpg"/>
-                </div>
-                <section class="searchBox">
-                    <div class="filters">
-                        <div class="filterName">
-                            <p>Ordem de exibição</p>
-                        </div>
-                        <select name="select">
-                            <option value="signUpDate" selected>data de cadastro</option>
-                            <option value="followers">número de seguidores</option>
-                            <option value="repositoryQuantity">número de repositórios</option>
-                        </select>
-                    </div>
-                    <div class="filters">
-                        <div class="filterName">
-                            <p>Tipo de Perfil:</p>
-                        </div>
-                        <div class="checkbox">
-                            <div>
-                                <input type="checkbox" id="user" name="user" >
-                            </div>
-                            <div>
-                                <label>usuário</label>
-                            </div>
-                        </div>
-                        <div class="checkbox">
-                            <div>
-                                <input type="checkbox" id="organization" name="orgnaization">
-                            </div>
-                            <div>
-                                <label>organização</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="filters">
-                        <div class="filterName">
+        <header class="headerBox">
+            <div class="brandBox">
+                <p>PIRAHUB</p>
+            </div>
+        </header>
+        <main class="mainBox">
+            <section class="searchBox">
+                <div class="filter">
+                    <div class="searchBar">
+                        <div class="searchWriter">
                             <input type="text" placeholder="Pesquisar...">
                         </div>
-                        <div>
-                            <button type="button">Pesquisar</button>
+                        <div class="searchButton">
+                            <button type="button">Pes</button>
                         </div>
                     </div>
-                </section>
-            </header>
+                </div>
+                <div class="filter">
+                    <select name="select">
+                        <option value="signUpDate" selected >Ordenar por...</option>
+                        <option value="signUpDate">data de cadastro</option>
+                        <option value="followers">número de seguidores</option>
+                        <option value="repositoryQuantity">número de repositórios</option>
+                    </select>
+                </div>
+                <div class="filter">
+                    <div class="filterName">
+                        <p>Tipo de Perfil:</p>
+                    </div>
+                    <div class="checkbox">
+                        <div>
+                            <input type="checkbox" id="user" name="user" >
+                        </div>
+                        <div>
+                            <label>usuário</label>
+                        </div>
+                    </div>
+                    <div class="checkbox">
+                        <div>
+                            <input type="checkbox" id="organization" name="orgnaization">
+                        </div>
+                        <div>
+                            <label>organização</label>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <section class="contentBox">
                 <section class="resultsBox">
                     <div class="userBox">

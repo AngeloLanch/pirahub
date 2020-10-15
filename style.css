@@ -14,14 +14,23 @@ img {
     margin: 0 auto;
 }
 
-.header {
-    display: flex;
-    background: #1d1e20;
-    flex-direction: column;
+p, label {
+    color: black;
+}
+
+.mainBox{
+    padding: 0px 16px 48px;
+}
+
+.headerBox {
+    border-bottom: 1px solid #dadce0;
 }
 
 .brandBox {
-    margin: 5px auto;
+    width: 100%;
+    padding: 18px 60px;
+    background: #FFF;
+    text-align: center;
 }
 
 /*.brandBox */
@@ -31,19 +40,42 @@ img {
     color: white;
     justify-content: center;
     flex-wrap: wrap;
+    margin: 40px 0px 0px;
 }
 
-.filters { 
-    margin: 10px 50px;
+.filter { 
+    margin: 10px  0px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     text-align: center;
+    min-width: 0;
 }
 
 .filterName {
     margin: 10px;
+}
+
+.searchBar {
+    display: flex;
+    min-width: 0;
+    border: 1px solid gray;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.searchWriter {
+    min-width: 0;
+}
+.searchWriter input {
+    border: 0;
+    padding: 4px 20px;
+    width: 100%;
+}
+
+.searchButton {
+    display: flex;
 }
 
 .checkbox {
@@ -104,6 +136,14 @@ img {
 }
 
 @media (min-width: 550px) {
+    .brandBox {
+        text-align: left;
+    }
+
+    .mainBox{
+        padding: 0px 60px 48px;
+    }
+    
     .userBox p {
         padding-left: 20px;
     }
