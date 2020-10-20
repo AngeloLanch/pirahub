@@ -15,7 +15,7 @@ img {
 }
 
 p, label {
-    color: black;
+    color: #5f6368;
 }
 
 .mainBox{
@@ -33,23 +33,24 @@ p, label {
     text-align: center;
 }
 
-/*.brandBox */
-
 .searchBox {
     display: flex;
     color: white;
     justify-content: center;
-    flex-wrap: wrap;
     margin: 40px 0px 0px;
 }
 
+.filterBox {
+    display: flex;
+    flex-direction: column;
+    width: 100%;    
+}
+
 .filter { 
-    margin: 10px  0px;
+    margin: 10px 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    text-align: center;
     min-width: 0;
 }
 
@@ -60,9 +61,11 @@ p, label {
 .searchBar {
     display: flex;
     min-width: 0;
-    border: 1px solid gray;
+    border: 1px solid #dadce0;
     border-radius: 50px;
     overflow: hidden;
+    height: 45px;
+    align-items: center;
 }
 
 .searchWriter {
@@ -74,8 +77,33 @@ p, label {
     width: 100%;
 }
 
-.searchButton {
+.searchIconBox {
     display: flex;
+    height: 100%;
+    align-items: center;
+    border-left: 1px solid #dadce0;
+}
+
+.searchIcon {
+    display: flex;
+    margin: 0 10px;
+    fill: #5f6368;
+}
+
+.orderBox {
+    display: none;
+    border: 1px solid black;
+}
+
+.orderBox button {
+    background: #FFF;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.orderBox button:last-child {
+    border: none;
 }
 
 .checkbox {
@@ -116,19 +144,30 @@ p, label {
 }
 
 .resultsBox {
-    margin: 0 auto;
-    padding: 80px 10px 10px;
+    margin: 35px auto;
+    padding: 70px 10px 10px;
     display: flex;
     flex-direction: column;
     width: 100%;
+    border: 1px solid #dadce0;
+    border-radius: 1em;
 }
 
 .userBox {
     display: flex;
     flex-direction: column;
     text-align: center;
-    margin-bottom: 45px;
-    padding: 0 15px;
+    margin: 0 45px 35px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.08);
+    border-radius: 1em;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 15px;
+}
+
+.userTextBox {
+    max-height: 150px;
+    overflow: hidden;
+    padding: 20px;
 }
 
 .userBox img {
@@ -143,10 +182,16 @@ p, label {
     .mainBox{
         padding: 0px 60px 48px;
     }
+
+    .filterBox {
+        flex-direction: row-reverse;
+    }
     
     .userBox p {
         padding-left: 20px;
     }
+
+
 }
 
 @media (min-width: 550px) and (max-width: 1000px) {
