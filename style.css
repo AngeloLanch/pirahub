@@ -116,33 +116,6 @@ p, label {
     margin: 0 5px;
 }
 
-.contentBox {
-    display: flex;
-    flex-direction: column;
-}
-
-.authorBox {
-    background: chocolate;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.authorBox > div {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 45px;
-    text-align: center;
-}
-
-.companyInfo {
-    background: coral;
-}
-
-.authorInfo {
-    background: crimson;
-}
-
 .resultsBox {
     margin: 35px auto;
     padding: 70px 10px 10px;
@@ -161,17 +134,44 @@ p, label {
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.08);
     border-radius: 1em;
     border: 1px solid rgba(0, 0, 0, 0.1);
-    padding: 15px;
+    padding: 25px;
+}
+
+.userImage {
+    box-shadow: 0px 6px 6px rgba(0, 255, 255, 0.1);
+    margin: 0 auto;
+    border-radius: 1em;
+    overflow: hidden;
+    display: flex;
 }
 
 .userTextBox {
-    max-height: 150px;
+    display: flex;
+    max-height: 130px;
     overflow: hidden;
     padding: 20px;
 }
 
-.userBox img {
-    margin: 0;
+.authorBox {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.authorBox > div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 45px;
+    text-align: center;
+}
+
+.companyInfo {
+    
+}
+
+.authorInfo {
+    
 }
 
 @media (min-width: 550px) {
@@ -191,23 +191,13 @@ p, label {
         padding-left: 20px;
     }
 
-
-}
-
-@media (min-width: 550px) and (max-width: 1000px) {
     .authorBox {
-        flex-wrap: nowrap;
+       flex-direction: row;
     }
+
 }
 
 @media (min-width: 1000px) {
-    .authorBox {
-        display: block;
-    }
-    .contentBox {
-        flex-direction: initial;
-    }
-
     .resultsBox {
         display: grid;
         grid-template-columns: 1fr 1fr;
