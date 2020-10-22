@@ -75,6 +75,7 @@ p, label {
     border: 0;
     padding: 4px 20px;
     width: 100%;
+    outline-color:transparent;
 }
 
 .searchIconBox {
@@ -118,31 +119,39 @@ p, label {
 
 .resultsBox {
     margin: 35px auto;
-    padding: 70px 10px 10px;
+    padding: 20px 20px 0px 20px;
     display: flex;
     flex-direction: column;
     width: 100%;
     border: 1px solid #dadce0;
-    border-radius: 1em;
+    border-radius: 1rem;
 }
 
 .userBox {
     display: flex;
+    align-items: center;
     flex-direction: column;
     text-align: center;
-    margin: 0 45px 35px;
+    padding: 35px 25px 10px;
+    margin-bottom: 25px;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.08);
-    border-radius: 1em;
+    border-radius: 1.2rem;
     border: 1px solid rgba(0, 0, 0, 0.1);
-    padding: 25px;
+    height: 288px;
 }
 
 .userImage {
     box-shadow: 0px 6px 6px rgba(0, 255, 255, 0.1);
     margin: 0 auto;
-    border-radius: 1em;
+    border-radius: 1.2rem;
     overflow: hidden;
     display: flex;
+    justify-content: center;
+    width: 6rem;
+}
+
+.userImage img {
+    width:100%
 }
 
 .userTextBox {
@@ -181,14 +190,17 @@ p, label {
 
     .mainBox{
         padding: 0px 60px 48px;
+        max-width: 1200px;
+        margin: 0 auto;
     }
 
     .filterBox {
         flex-direction: row-reverse;
     }
-    
-    .userBox p {
-        padding-left: 20px;
+
+    .userTextBox {
+        width: 100%;
+        padding: 20px 20px 20px 40px;
     }
 
     .authorBox {
@@ -201,10 +213,15 @@ p, label {
     .resultsBox {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
         order: 2;
+        padding: 35px 40px 0px 40px;
     }
 
     .userBox {
         flex-direction: initial;
+        height: 170px;
+        margin: 0;
+        padding: 10px 10px 10px 30px;
     }
 }
