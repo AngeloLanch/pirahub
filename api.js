@@ -1,77 +1,87 @@
-async function getUser() {
+async function getAllUsers() {
     const url = 'https://api.github.com/search/users?q=type:User+location:Piracicaba';
     const response = await fetch(url)
     const result =  await response.json()
 
     result.items.forEach(user => {
-        addUser(user);
-        // console.log(user);
+        getUser(user)
     });
-}
+};
 
-function addUser(user) {
+async function getUser(user) {    
+    const userUrl = user.url;
+    const userResponse = await fetch(userUrl)
+    const userResult =  await userResponse.json()
+
+    if(user == undefined) {
+        console.log(user);
+    }
+
+    addUserCard(userResult);
+    // console.log(userResult.avatar_url);
+    // console.log(userResult.type);
+    // console.log(userResult.followers);
+    // console.log(userResult.public_repos);
+};
+
+function addUserCard(user) {
+    // var userBoxElement = document.createElement('div');
+    // userBoxElement.setAttribute('class', 'userBox');
+
+
+    // var userInfosElement = document.createElement('div');
+    // userInfosElement.setAttribute('class', 'userInfos');
+    
+    // var userImageElement = document.createElement('div');
+    // userImageElement.setAttribute('class', 'userImage');
+    
+    // var imgElement = document.createElement('img');
+    // imgElement.setAttribute('src', `${user.avatar_url}`) 
+    // userImageElement.appendChild(imgElement);
+
+    // userInfosElement.appendChild(userImageElement);
+
+
+    // var userNameElement = document.createElement('div');
+    // userNameElement.setAttribute('class', 'userName');
+
+    // var pElement = document.createElement('p');
+    // userNameElement.appendChild(pElement);
+    
+    // userInfosElement.appendChild(userNameElement);
+
+    // userBoxElement.appendChild(userInfosElement);
+
+    // var userDescriptionElement = document.createElement('div');
+    // userDescriptionElement.setAttribute('class', 'userDescription');
+    
+    // var pElement = document.createElement('p');
+    // userDescriptionElement.appendChild(pElement);
+    
+    // userBoxElement.appendChild(userDescriptionElement);
+
+
+    // const resultsBox = document.querySelector('#resultsBox');
+    // resultsBox.appendChild(userBoxElement);
+
     const resultsBox = document.querySelector('#resultsBox');
-    var userBoxElement = document.createElement('div');
-    userBoxElement.setAttribute('class', 'userBox');
-
-    // ******
-    var userInfosElement = document.createElement('div');
-    userInfosElement.setAttribute('class', 'userInfos');
-    
-    var userImageElement = document.createElement('div');
-    userImageElement.setAttribute('class', 'userImage');
-    
-
-    var imgElement = document.createElement('img');
-    imgElement.setAttribute('src', `${user.avatar_url}`) 
-    userImageElement.appendChild(imgElement);
-
-
-    
-    var divElement = document.createElement('div');
-    userInfos.appendChild(divElement);
-    divElement.setAttribute('class', 'userName');
-
-    const userImage = document.querySelector('.userImage');
-    var imgElement = document.createElement('img');
-    
-
-    userInfosElement.appendChild(userImageElement);
-    userBoxElement.appendChild(userInfosElement);
-    
-
-
-    const userName = document.querySelector('.userName');
-    var pElement = document.createElement('p');
-    userName.appendChild(pElement);
-    // *******
-
-    var divElement = document.createElement('div');
-    resultsBox.appendChild(divElement);
-    divElement.setAttribute('class', 'userDescription');
-    
-    const userDescription = document.querySelector('.userDescription');
-    var pElement = document.createElement('p');
-    userDescription.appendChild(pElement);
-    
-    resultsBox.appendChild();
-
-    // const userBox = 
-    // `
-    // <div class="userBox">
-    //     <div class="userInfos">
-    //         <div class="userImage">
-    //             <img src="./img/perfil.png"/>
-    //         </div>
-    //         <div class="userName">
-    //             <p>user name</p>
-    //         </div>
-    //     </div>
-    //     <div class="userDescription">
-    //         <p>bla blab lab bla bla bla bl bla bla bla esse usuário é top demais! </p>
-    //     </div>
-    // </div>
-    // `
-
-    return;
-}
+    var resultsBoxHTML = resultsBox.innerHTML;
+    resultsBox.innerHTML=
+    `
+        <div class="userBox">
+            <div class="userInfos">
+                <div class="userImage">
+                    <img src="${user.avatar_url}"/>
+                </div>
+                <div class="userName">
+                    <p>${user.name}</p>
+                </div>
+            </div>
+            <div class="userDescription">
+                <p>${user.name}</p>
+                <p>${user.name}</p>
+                <p>${user.name}</p>
+            </div>
+        </div>
+    ` + resultsBoxHTML;
+};
