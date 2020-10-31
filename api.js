@@ -13,15 +13,7 @@ async function getUser(user) {
     const userResponse = await fetch(userUrl)
     const userResult =  await userResponse.json()
 
-    if(user == undefined) {
-        console.log(user);
-    }
-
     addUserCard(userResult);
-    // console.log(userResult.avatar_url);
-    // console.log(userResult.type);
-    // console.log(userResult.followers);
-    // console.log(userResult.public_repos);
 };
 
 function addUserCard(user) {
@@ -61,27 +53,29 @@ function addUserCard(user) {
     // userBoxElement.appendChild(userDescriptionElement);
 
 
-    // const resultsBox = document.querySelector('#resultsBox');
-    // resultsBox.appendChild(userBoxElement);
+    // const resultSection = document.querySelector('#resultSection');
+    // resultSection.appendChild(userBoxElement);
 
-    const resultsBox = document.querySelector('#resultsBox');
-    var resultsBoxHTML = resultsBox.innerHTML;
-    resultsBox.innerHTML=
+    const resultSection = document.querySelector('#resultSection');
+    var resultSectionHTML = resultSection.innerHTML;
+    resultSection.innerHTML=
     `
         <div class="userBox">
             <div class="userInfos">
                 <div class="userImage">
                     <img src="${user.avatar_url}"/>
                 </div>
+            </div>
+            <div class="userInfos">
                 <div class="userName">
                     <p>${user.name}</p>
                 </div>
-            </div>
-            <div class="userDescription">
-                <p>${user.name}</p>
-                <p>${user.name}</p>
-                <p>${user.name}</p>
+                <div class="">
+                    <p>${user.type}</p>
+                    <p>${user.followers}</p>
+                    <p>${user.public_repos}</p>
+                </div>
             </div>
         </div>
-    ` + resultsBoxHTML;
+    ` + resultSectionHTML;
 };

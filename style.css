@@ -122,7 +122,7 @@ p, label {
     margin: 0 5px;
 }
 
-.resultsBox {
+.resultSection {
     margin: 35px auto;
     padding: 20px;
     display: flex;
@@ -148,6 +148,9 @@ p, label {
 .userInfos {
     display: flex;
     flex-direction: column;
+    max-height: 130px;
+    overflow: hidden;
+    padding: 20px;
 }
 
 .userImage {
@@ -157,18 +160,11 @@ p, label {
     overflow: hidden;
     display: flex;
     justify-content: center;
-    width: 6rem;
+    width: 7rem;
 }
 
 .userImage img {
     width:100%
-}
-
-.userDescription {
-    display: flex;
-    max-height: 130px;
-    overflow: hidden;
-    padding: 20px;
 }
 
 .authorBox {
@@ -213,11 +209,6 @@ p, label {
         flex-direction: row-reverse;
     }
 
-    .userDescription {
-        width: 100%;
-        padding: 20px 20px 20px 40px;
-    }
-
     .authorBox {
        flex-direction: row;
     }
@@ -225,7 +216,7 @@ p, label {
 }
 
 @media (min-width: 1000px) {
-    .resultsBox {
+    .resultSection {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-gap: 40px;
