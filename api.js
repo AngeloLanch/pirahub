@@ -4,9 +4,10 @@ async function getAllUsers() {
     const result =  await response.json()
 
     result.items.forEach(user => {
-        getUser(user)
+        addUserCard(user);
     });
 };
+// getUser(user);
 
 async function getUser(user) {    
     const userUrl = user.url;
@@ -60,22 +61,30 @@ function addUserCard(user) {
     var resultSectionHTML = resultSection.innerHTML;
     resultSection.innerHTML=
     `
-        <div class="userBox">
-            <div class="userInfos">
-                <div class="userImage">
-                    <img src="${user.avatar_url}"/>
-                </div>
+    <div class="userBox">
+        <div class="userProfile">
+            <div class="userImage">
+                <img src="${user.avatar_url}"/>
             </div>
-            <div class="userInfos">
-                <div class="userName">
-                    <p>${user.name}</p>
+            <div class="userBasicInfos">
+                <div class="userLogin">
+                    <p>${user.login}</p>
                 </div>
-                <div class="">
-                    <p>${user.type}</p>
-                    <p>${user.followers}</p>
-                    <p>${user.public_repos}</p>
+                <div class="userDetails">
+                    <div class="">
+                        <p><span></span>1234 followers</p>
+                        <p><span></span>1234 followers</p>
+                        <p><span></span>1234 followers</p>
+                    </div>
+                    <div class="description">
+                        <p>bla bla bla bla esse é um super usuário legal</p>
+                    </div>
                 </div>
             </div>
         </div>
+    <div>
+        <span class="arrow">&#748</span>
+    </div>
+</div>
     ` + resultSectionHTML;
 };

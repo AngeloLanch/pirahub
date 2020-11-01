@@ -137,20 +137,11 @@ p, label {
     align-items: center;
     flex-direction: column;
     text-align: center;
-    padding: 35px 25px 10px;
-    margin-bottom: 25px;
+    padding: 35px 25px;
+    margin-bottom: 40px;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.08);
     border-radius: 1.2rem;
     border: 1px solid rgba(0, 0, 0, 0.1);
-    height: 288px;
-}
-
-.userInfos {
-    display: flex;
-    flex-direction: column;
-    max-height: 130px;
-    overflow: hidden;
-    padding: 20px;
 }
 
 .userImage {
@@ -165,6 +156,29 @@ p, label {
 
 .userImage img {
     width:100%
+}
+
+.userBasicInfos {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 22px 0 0;
+}
+
+.userLogin {
+    margin-bottom: 20px;
+}
+
+.userDetails {
+    display: none;
+}
+
+.userDescription {}
+
+.arrow {
+    line-height: 0;
+    font-size: 50px;
+    color: gray;
 }
 
 .authorBox {
@@ -225,9 +239,24 @@ p, label {
     }
 
     .userBox {
-        flex-direction: initial;
-        height: 170px;
+        height: 205px;
         margin: 0;
-        padding: 10px 10px 10px 30px;
+        padding: 20px 25px;
+    }
+
+    .userProfile {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .userImage {
+        margin: 0;
+    }
+
+    .userBasicInfos {
+        margin: 0 auto;
     }
 }
