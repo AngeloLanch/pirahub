@@ -14,7 +14,10 @@ async function getUser(user) {
     const userResponse = await fetch(userUrl);
     const userResult =  await userResponse.json();
 
-    addUserCard(userResult);
+    if (userResult) {
+        addUserCard(userResult);
+    }
+    console.log('undefined user');
 };
 
 function addUserCard(user) {
@@ -101,7 +104,7 @@ function addUserCard(user) {
                     <div class="userDetails">
                         <p><span>${followersIcon}</span>${user.followers} followers</p>
                         <p><span>${reposIcon}</span>${user.public_repos} repos</p>
-                        <p><span>${typeIcon}</span>${user.type} user</p>
+                        <p><span>${typeIcon}</span>${user.type}</p>
                     </div>
                 </div>
             </div>

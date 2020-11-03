@@ -151,7 +151,6 @@ p, label {
 
 .userCard > div{
     width: 100%;
-    max-height: 438px;
     overflow: hidden;
 }
 
@@ -182,7 +181,6 @@ p, label {
 }
 
 .userName {
-    min-height: 61px;
     margin-bottom: 15px;
 }
 
@@ -194,7 +192,8 @@ p, label {
 .userDetails p {
     display: flex;
     align-items: center;
-    margin: 15px 15px;
+    margin: 15px 0;
+    min-width: 220px;
 }
 
 .userDetails span {
@@ -203,7 +202,9 @@ p, label {
 }
 
 .userBio {
-    padding: 55px 0 25px;
+    /* padding: 10px 0 35px; */
+    height: 100%;
+    max-height: 0;
 }
 
 .arrow {
@@ -257,8 +258,12 @@ p, label {
         flex-direction: row-reverse;
     }
 
-    .userName {
-        margin: 0;
+    .userDetails {
+        justify-content: center;
+    }
+
+    .userDetails p {
+        justify-content: center;
     }
 
     .userDetails {
@@ -271,7 +276,7 @@ p, label {
 
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1180px) {
     .resultSection {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -281,15 +286,13 @@ p, label {
     }
 
     .userCard {
-        height: 210px;
         margin: 0;
         padding: 20px 25px;
     }
 
     .userInfos {
         display: flex;
-        flex-direction: end;
-        align-items: center;
+        align-items: flex-start;
         width: 100%;
         overflow: hidden;
     }
@@ -301,9 +304,5 @@ p, label {
     .userBasicInfos {
         margin: 0 auto;
         padding-left: 15px;
-    }
-
-    .userDetails {
-        justify-content: initial;
     }
 }
