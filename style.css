@@ -132,16 +132,31 @@ p, label {
     border-radius: 1rem;
 }
 
-.userBox {
+.userCard {
     display: flex;
     align-items: center;
     flex-direction: column;
     text-align: center;
-    padding: 35px 25px;
+    padding: 32px 25px 25px;
     margin-bottom: 40px;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.08);
     border-radius: 1.2rem;
     border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.userCard p {
+    font-family: cursive;
+    font-size: 22px;
+}
+
+.userCard > div{
+    width: 100%;
+    max-height: 438px;
+    overflow: hidden;
+}
+
+.userInfos {
+    margin-bottom: 20px;
 }
 
 .userImage {
@@ -151,6 +166,7 @@ p, label {
     overflow: hidden;
     display: flex;
     justify-content: center;
+    min-width: 7rem;
     width: 7rem;
 }
 
@@ -162,23 +178,41 @@ p, label {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    margin: 22px 0 0;
+    margin: 20px 0 0;
 }
 
-.userLogin {
-    margin-bottom: 20px;
+.userName {
+    min-height: 61px;
+    margin-bottom: 15px;
 }
 
 .userDetails {
-    display: none;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.userDescription {}
+.userDetails p {
+    display: flex;
+    align-items: center;
+    margin: 15px 15px;
+}
+
+.userDetails span {
+    display: flex;
+    margin-right: 15px;
+}
+
+.userBio {
+    padding: 55px 0 25px;
+}
 
 .arrow {
     line-height: 0;
     font-size: 50px;
     color: gray;
+    position: relative;
+    bottom: 25px;
+    font-family: system-ui;
 }
 
 .authorBox {
@@ -223,6 +257,14 @@ p, label {
         flex-direction: row-reverse;
     }
 
+    .userName {
+        margin: 0;
+    }
+
+    .userDetails {
+        justify-content: center;
+    }
+
     .authorBox {
        flex-direction: row;
     }
@@ -238,15 +280,15 @@ p, label {
         padding: 35px 40px 40px 40px;
     }
 
-    .userBox {
-        height: 205px;
+    .userCard {
+        height: 210px;
         margin: 0;
         padding: 20px 25px;
     }
 
-    .userProfile {
+    .userInfos {
         display: flex;
-        flex-direction: row;
+        flex-direction: end;
         align-items: center;
         width: 100%;
         overflow: hidden;
@@ -258,5 +300,10 @@ p, label {
 
     .userBasicInfos {
         margin: 0 auto;
+        padding-left: 15px;
+    }
+
+    .userDetails {
+        justify-content: initial;
     }
 }
