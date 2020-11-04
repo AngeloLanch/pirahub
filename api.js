@@ -7,7 +7,8 @@ async function getAllUsers() {
         getUser(user);
     });
 };
-// getUser(user);
+
+// promisse all (garantir retorno de todas as promisses antes de dar continuidade)
 
 async function getUser(user) {    
     const userUrl = user.url;
@@ -17,6 +18,7 @@ async function getUser(user) {
     if (userResult) {
         addUserCard(userResult);
     }
+
     console.log('undefined user');
 };
 
@@ -90,6 +92,7 @@ function addUserCard(user) {
     const resultSection = document.querySelector('#resultSection');
     let resultSectionHTML = resultSection.innerHTML;
     resultSection.innerHTML =
+    //insertadjacentHTML pesquisar
     `
     <div class="userCard">
         <div>
