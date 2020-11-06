@@ -19,7 +19,7 @@ async function getUser(user) {
         addUserCard(userResult);
     }
 
-    console.log('undefined user');
+    console.log('undefined userrr');
 };
 
 function addUserCard(user) {
@@ -119,5 +119,43 @@ function addUserCard(user) {
     </div>
     ` + resultSectionHTML;
 };
+
+
+setTimeout(function() {
+    const filter = document.querySelector('#filter');
+    filter.addEventListener("input", function() {        
+        let users = document.querySelectorAll('.userCard');
+
+        if(this.value.length    > 0) {
+            for(var i = 0; i <  users.length; i++) {
+                var user =  users[i];
+
+                let divName= user.querySelector('.userName p');
+                let userName = divName.textContent;
+                
+                let searching = new RegExp(this.value, 'i');
+
+                if(!searching.test(userName)) {
+                    user.classList.add('invisivel');
+                }
+
+                else {
+                    user.classList.remove('invisivel');
+                }
+            };
+        }
+
+        else {
+            for(var i = 0; i <  users.length; i++) {
+                var user =  users[i];
+                user.classList.remove('invisivel');
+            }
+        }
+    });
+}, 1000);
+
+
+
+
 
 getAllUsers();
