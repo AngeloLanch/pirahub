@@ -18,6 +18,18 @@ p, label {
     color: #5f6368;
 }
 
+/* ------------------------------------------- */
+
+.invisible {
+    display: none !important;
+}
+
+.visible {
+    display: block !important;
+}
+
+/* ------------------------------------------- */
+
 .mainBox{
     padding: 0px 16px 48px;
 }
@@ -43,7 +55,7 @@ p, label {
 .filterBox {
     display: flex;
     flex-direction: column;
-    width: 100%;    
+    width: 100%;
 }
 
 .filter { 
@@ -52,9 +64,11 @@ p, label {
     justify-content: center;
     align-items: center;
     min-width: 0;
+    position: relative;
+    flex-direction: column;
 }
 
-.searchBar {
+.searchBar {    
     display: flex;
     min-width: 0;
     border: 1px solid #dadce0;
@@ -62,10 +76,12 @@ p, label {
     overflow: hidden;
     height: 45px;
     align-items: center;
+    width: 100%;
 }
 
 .searchWriter {
     min-width: 0;
+    width: 100%;
 }
 .searchWriter input {
     border: 0;
@@ -87,25 +103,60 @@ p, label {
     fill: #5f6368;
 }
 
-.filterButton {
+.filterButton,
+.filterTypeLabel {
+    font-family: monospace;
+    font-size: 20px;
+    color: #5f6368;
     padding: 5px 25px;
     min-width: 0;
-    border: 1px solid #dadce0;
+    border: 2px solid #dadce0;
     border-radius: 50px;
     height: 45px;
     background: #fff;
+    width: 100%;
+    outline-color:  transparent;
+}
+
+.filterTypeLabel {
+    border-width: 0px 0px 1px 0px;
+    padding: 0;
+    border-radius: 0;
+}
+
+.optionsTypeBox {
+    width: 100%;
+    font-size: 20px;
+}
+
+.optionsTypeBox label {
+    margin-right: 10px;
 }
 
 .orderBox {
     display: none;
-    border: 1px solid black;
+    position: absolute;
+    top: 44px;
+    border-radius: 0 0 20px 20px;
+    border: 1px solid #dadce0;
+    overflow: hidden;
+    width: 100%;
+    font-size: 20px;
+    z-index: 1;
+}
+
+.optionsTypeBox div, 
+.orderBox div {
+    background: #FFF;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #dadce0;
+    padding: 15px;
 }
 
 .orderBox button {
     background: #FFF;
     width: 100%;
-    border: none;
-    border-bottom: 1px solid black;
 }
 
 .orderBox button:last-child {
@@ -201,19 +252,15 @@ p, label {
     margin-right: 15px;
 }
 
+#userCreatedAt {
+    display: none;
+}
+
 .userBio {
     /* padding: 10px 0 35px; */
     height: 100%;
     max-height: 0;
-}
-
-.arrow {
-    line-height: 0;
-    font-size: 50px;
-    color: gray;
-    position: relative;
-    bottom: 25px;
-    font-family: system-ui;
+    display: none;
 }
 
 .authorBox {
@@ -249,15 +296,6 @@ p, label {
         margin: 0 auto;
     }
 
-    .filter {
-        margin-left: 30px;
-        margin-bottom: 0;
-    }
-
-    .filterBox {
-        flex-direction: row-reverse;
-    }
-
     .userDetails {
         justify-content: center;
     }
@@ -277,6 +315,38 @@ p, label {
 }
 
 @media (min-width: 1180px) {
+    .filter {
+        margin-left: 30px;
+        margin-bottom: 0;
+        min-width: 250px;
+    }
+
+    .filterTypeLabel {
+        display: flex;
+        align-items: center;
+        padding-bottom: 10px;
+        padding-left: 15px;
+    }
+
+    .filterBox {
+        flex-direction: row-reverse;
+    }
+
+    .typeFilter {
+        flex-direction: row;
+        align-items: flex-end;
+    }
+
+    .optionsTypeBox {
+        display: flex;
+        align-items: flex-end;
+    }
+    
+    .optionsTypeBox div {
+        display: flex;
+        align-items: center;
+    }
+
     .resultSection {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -305,8 +375,4 @@ p, label {
         margin: 0 auto;
         padding-left: 15px;
     }
-}
-
-.invisivel {
-    display: none;
 }

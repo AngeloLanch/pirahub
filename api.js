@@ -1,5 +1,7 @@
+// API CALL -----------------------------------
+// --------------------------------------------
 async function getAllUsers() {
-    const url = 'https://api.github.com/search/users?q=type:User+location:Piracicaba';
+    const url = 'https://api.github.com/search/users?q=location:Piracicaba';
     const response = await fetch(url)
     const result =  await response.json()
 
@@ -8,21 +10,261 @@ async function getAllUsers() {
     });
 };
 
-// promisse all (garantir retorno de todas as promisses antes de dar continuidade)
-
 async function getUser(user) {    
     const userUrl = user.url;
     const userResponse = await fetch(userUrl);
     const userResult =  await userResponse.json();
 
     if (userResult) {
-        addUserCard(userResult);
+        userCardRender(userResult);
     }
-
-    console.log('undefined userrr');
 };
 
-function addUserCard(user) {
+
+// DATA PROCESSING ----------------------------
+// --------------------------------------------
+function processDateIntoNumbers() {
+    let users = document.querySelectorAll('.userCard');
+    users.forEach(user => {
+        let createdAtElement = user.querySelector('#userCreatedAt');
+        let createdAt = createdAtElement.textContent;
+        let createdAtNumbers = parseInt(createdAt.replace(/[T+Z+\:+\-*$]/mig, ""));
+        createdAtElement.setAttribute("registerdate", createdAtNumbers);
+    });
+    return users;
+}
+
+function processFollowersNumbers() {
+    let users = document.querySelectorAll('.userCard');
+    users.forEach(user => {
+        let followersElement = user.querySelector('#followers');
+        let followers = followersElement.getAttribute('followers');
+        followersProcessed = ('00000' + followers).substr(-5);
+
+        followersElement.setAttribute("followers", followersProcessed)
+         
+    });
+    
+    return(users)
+};
+
+function processRepositoriesNumbers() {
+    let users = document.querySelectorAll('.userCard');
+    users.forEach(user => {
+        let repositoriesElement = user.querySelector('#repositories');
+        let repositories = repositoriesElement.getAttribute('repositories');
+        repositoriesProcessed = ('00000' + repositories).substr(-5);
+
+        repositoriesElement.setAttribute("repositories", repositoriesProcessed)  
+    });
+    
+    return(users)
+};
+
+function compareDateDesc(currentUser, nextUser) {
+    let currentNumberElement = currentUser.querySelector('#userCreatedAt');
+    let currentNumber = currentNumberElement.getAttribute('registerdate');
+
+    let nextNumberElement = nextUser.querySelector('#userCreatedAt');
+    let nextNumber = nextNumberElement.getAttribute('registerdate')
+
+    let comparison = 0;
+    if (currentNumber > nextNumber) {
+        comparison = -1;
+    } else if (currentNumber < nextNumber) {
+        comparison = 1;
+    }
+
+    return comparison;
+}
+
+function compareFollowersAsc(currentUser, nextUser) {
+    let currentNumberElement = currentUser.querySelector('#followers');
+    let currentNumber = currentNumberElement.getAttribute('followers');
+
+    let nextNumberElement = nextUser.querySelector('#followers');
+    let nextNumber = nextNumberElement.getAttribute('followers');
+
+
+    let comparison = 0;
+    if (currentNumber > nextNumber) {
+        comparison = 1;
+    } else if (currentNumber < nextNumber) {
+        comparison = -1;
+    }
+
+    return comparison;
+}
+
+function compareRepositoriesAsc(currentUser, nextUser) {
+    let currentNumberElement = currentUser.querySelector('#repositories');
+    let currentNumber = currentNumberElement.getAttribute('repositories');
+
+    let nextNumberElement = nextUser.querySelector('#repositories');
+    let nextNumber = nextNumberElement.getAttribute('repositories');
+
+    let comparison = 0;
+    if (currentNumber > nextNumber) {
+        comparison = 1;
+    } else if (currentNumber < nextNumber) {
+        comparison = -1;
+    }
+    return comparison;
+}
+
+
+// FUNCIONALITIES -----------------------------
+// --------------------------------------------
+function search() {         
+    let users = document.querySelectorAll('.userCard');
+
+    if(filter.value) {
+        users.forEach(user => {
+            let divNameElement= user.querySelector('.userName p');
+            let userName = divNameElement.textContent;
+            
+            let searching = new RegExp(this.value);
+
+            if(!searching.test(userName)) {
+                user.classList.add('invisivel');
+            }
+
+            else {
+                user.classList.remove('invisivel');
+            }
+        });
+    }
+
+    else {
+        users.forEach(user => {
+            user.classList.remove('invisivel');
+        });
+    }
+};
+
+function filterByUserType() {
+    let users = document.querySelectorAll('.userCard');
+
+    users.forEach(user => {
+        let divTypeElement = user.querySelector('#userType');
+        let userType = divTypeElement.getAttribute('value');
+
+        if(userType != 'User') {
+            user.classList.add('invisible');
+        }
+
+        else {
+            user.classList.remove('invisible');
+        }
+    });
+};
+
+function filterByOrganizationType() {
+    let users = document.querySelectorAll('.userCard');
+
+    users.forEach(user => {
+        let divTypeElement = user.querySelector('#userType');
+        let userType = divTypeElement.getAttribute('value');
+
+        if(userType != 'organization') {
+            user.classList.add('invisible');
+        }
+
+        else {
+            user.classList.remove('invisible');
+        }
+    });
+}
+
+function filterByAllType() {
+    let users = document.querySelectorAll('.userCard');
+
+    users.forEach(user => {
+        user.classList.remove('invisible');
+    });
+}
+
+function showSortBox() {
+    let orderBox = document.querySelector('#orderBox');
+    orderBox.classList.toggle('visible');
+};
+
+function sortByRegisterDate() {
+    let users = processDateIntoNumbers();
+    let arrayUsers = Array.from(users);
+
+    let sortedUsers = arrayUsers.sort(compareDateDesc);
+    sortFilterRender(sortedUsers);
+};
+
+async function sortByFollowers() {
+    let users = processFollowersNumbers();
+    let arrayUsers = Array.from(users);
+
+    let sortedUsers = arrayUsers.sort(compareFollowersAsc);
+    sortFilterRender(sortedUsers);
+    // sortedUsers2.forEach(user => {
+    //     let teste = user.querySelector('#repositories')
+    //     console.log(teste);
+    // })
+};
+
+async function sortByRepositories() {
+    let users = processRepositoriesNumbers();
+
+    let arrayUsers = Array.from(users);
+    let sortedUsers = arrayUsers.sort(compareRepositoriesAsc);
+
+    sortFilterRender(sortedUsers);
+};
+
+
+// HANDLES -----------------------------------
+// --------------------------------------------
+function searchHandle() {
+    let filter = document.querySelector('#filter');
+    filter.addEventListener("input", search);
+};
+
+function filterByUserTypeHandle() {
+    let userFilter = document.querySelector('#user');
+    userFilter.addEventListener('click', filterByUserType)
+};
+
+function filterByOrganizationTypeHandle() {
+    let organizationFilter = document.querySelector('#organization');
+    organizationFilter.addEventListener('click', filterByOrganizationType)
+};
+
+function filterByAllTypeHandle() {
+    let allFilter = document.querySelector('#all');
+    allFilter.addEventListener('click', filterByAllType)
+};
+
+function showSortBoxHandle() {
+    let clickedOrderBy = document.querySelector('#orderBy');
+    clickedOrderBy.addEventListener('click', showSortBox);
+};
+
+function sortByRegisterDateHandle() {
+    let dateOption = document.querySelector('#registerDate');
+    dateOption.addEventListener('click', sortByRegisterDate);
+}
+
+function sortByFollowersHandle() {
+    let followersOption = document.querySelector('#followersNumber');
+    followersOption.addEventListener('click', sortByFollowers);
+}
+
+function sortByRepositoriesHandle() {
+    let reposOption = document.querySelector('#repositoriesNumber');
+    reposOption.addEventListener('click', sortByRepositories);
+}
+
+
+// RENDERS ------------------------------------
+// --------------------------------------------
+function userCardRender(user) {
     const followersIcon = `<svg id="Capa_1" enable-background="new 0 0 512 512" height="32" 
     viewBox="0 0 512 512" width="32" xmlns="http://www.w3.org/2000/svg" 
     xmlns:xlink="http://www.w3.org/1999/xlink"><linearGradient id="SVGID_1_" 
@@ -88,74 +330,54 @@ function addUserCard(user) {
     8.994h251.836c4.971 0 8.994-4.023 8.994-8.994 
     0-74.395-60.517-135.512-134.912-135.512s-134.912 61.117-134.912 135.512z" 
     fill="url(#SVGID_3_)"/></g></g></svg>`;
-
-    const resultSection = document.querySelector('#resultSection');
-    let resultSectionHTML = resultSection.innerHTML;
-    resultSection.innerHTML =
-    //insertadjacentHTML pesquisar
-    `
+    const modelUserCard = ` 
     <div class="userCard">
-        <div>
-            <div class="userInfos">
-                <div class="userImage">
-                    <img src="${user.avatar_url}"/>
-                </div>
-                <div class="userBasicInfos">
-                    <div class="userName">
-                        <p>${user.name}</p>
-                    </div>
-                    <div class="userDetails">
-                        <p><span>${followersIcon}</span>${user.followers} followers</p>
-                        <p><span>${reposIcon}</span>${user.public_repos} repos</p>
-                        <p><span>${typeIcon}</span>${user.type}</p>
-                    </div>
-                </div>
+        <div class="userInfos">
+            <div class="userImage">
+                <img src="${user.avatar_url}"/>
             </div>
-            <div class="userBio">
-                <p>Bio<br>${user.bio}</p>
+            <div class="userBasicInfos">
+                <div class="userName">
+                    <p>${user.name}</p>
+                </div>
+                <div class="userDetails">
+                    <p id="followers" followers="${user.followers}"><span>${followersIcon}</span>${user.followers} followers</p>
+                    <p id="repositories" repositories="${user.public_repos}"><span>${reposIcon}</span>${user.public_repos} repos</p>
+                    <p id="userType" value="${user.type}"><span>${typeIcon}</span>${user.type}</p>
+                    <p id="userCreatedAt" registerdate="">${user.created_at}</p>
+                </div>
             </div>
         </div>
-        <span class="arrow">&#748</span>
-    </div>
-    ` + resultSectionHTML;
+        <div class="userBio">
+            <p>Bio<br>${user.bio}</p>
+        </div>
+    </div>`;
+
+    let resultSection = document.querySelector('#resultSection');
+    let resultSectionHTML = resultSection.innerHTML;
+    resultSection.innerHTML = modelUserCard + resultSectionHTML;
+};
+
+function sortFilterRender(sortedUsers) {
+    let resultSection = document.querySelector('#resultSection');
+    resultSection.innerHTML = '';
+
+    sortedUsers.forEach(user => {
+        let resultSectionHTML = resultSection.innerHTML;
+        resultSection.innerHTML = user.outerHTML + resultSectionHTML
+    });
 };
 
 
-setTimeout(function() {
-    const filter = document.querySelector('#filter');
-    filter.addEventListener("input", function() {        
-        let users = document.querySelectorAll('.userCard');
-
-        if(this.value.length    > 0) {
-            for(var i = 0; i <  users.length; i++) {
-                var user =  users[i];
-
-                let divName= user.querySelector('.userName p');
-                let userName = divName.textContent;
-                
-                let searching = new RegExp(this.value, 'i');
-
-                if(!searching.test(userName)) {
-                    user.classList.add('invisivel');
-                }
-
-                else {
-                    user.classList.remove('invisivel');
-                }
-            };
-        }
-
-        else {
-            for(var i = 0; i <  users.length; i++) {
-                var user =  users[i];
-                user.classList.remove('invisivel');
-            }
-        }
-    });
-}, 1000);
-
-
-
-
-
+// EXECUTION ----------------------------------
+// --------------------------------------------
 getAllUsers();
+
+searchHandle();
+filterByUserTypeHandle();
+filterByOrganizationTypeHandle();
+filterByAllTypeHandle();
+showSortBoxHandle();
+sortByRegisterDateHandle();
+sortByFollowersHandle();
+sortByRepositoriesHandle();

@@ -35,35 +35,34 @@
                         </div>
                     </div>
                     <div class="filter">
-                        <button class="filterButton">
-                            Ordenar por...
+                        <button id="orderBy" class="filterButton">
+                            Ordenar por
                         </button>
-                        <!-- <div class="orderBox">
-                            <button>Data de cadastro</button>
-                            <button>Número de seguidores</button>
-                            <button>Número de repositórios</button>
-                        </div> -->
-                    </div>
-                    <div class="filter">
-                        <button class="filterButton">
-                            tipo de perfil...
-                        </button>
-                        <!-- <div class="checkbox">
-                            <div>
-                                <input type="checkbox" id="user" name="user" >
-                            </div>
-                            <div>
-                                <label>user</label>
-                            </div>
+                        <div id="orderBox" class="orderBox">
+                            <div id="registerDate"><p>Data de cadastro</p></div>
+                            <div id="followersNumber"><p>Número de seguidores</p></div>
+                            <div id="repositoriesNumber"><p>Número de repositórios</p></div>
                         </div>
-                        <div class="checkbox">
+                    </div>
+                    <div class="filter typeFilter">
+                        <div class="filterTypeLabel">
+                            <p>tipo de perfil:</p>
+                        </div>
+                        <div class="optionsTypeBox">
                             <div>
-                                <input type="checkbox" id="organization" name="orgnaization">
+                                <label>usuário</label>
+                                <input type="radio" id="user" name="userType" value="user">
                             </div>
                             <div>
                                 <label>organização</label>
+                                <input type="radio" id="organization" name="userType" value="organization">
+
                             </div>
-                        </div> -->
+                            <div>
+                                <label>todos</label>
+                                <input type="radio" id="all" name="userType" value="all">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
