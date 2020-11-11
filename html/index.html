@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="../style/style.css">
         <title>PiraHub</title>
     </head>
     <body>
@@ -34,11 +34,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="filter">
-                        <button id="orderBy" class="filterButton">
+                    <div class="filter sortFilter">
+                        <button id="sortBy" class="filterButton">
                             Ordenar por
                         </button>
-                        <div id="orderBox" class="orderBox">
+                        <div id="sortBox" class="sortBox">
                             <div id="registerDate"><p>Data de cadastro</p></div>
                             <div id="followersNumber"><p>Número de seguidores</p></div>
                             <div id="repositoriesNumber"><p>Número de repositórios</p></div>
@@ -69,7 +69,7 @@
             <section id='resultSection' class="resultSection">
             </section>
         </main>
-        <footer class="authorBox">
+        <!-- <footer class="authorBox">
             <div class="companyInfo">
                 <img src="./img/perfil.png"/>
                 <p>Ângelo Lanche</p>
@@ -82,11 +82,7 @@
                 <img src="img/perfil.png" />
                 <p>Pecege Logo</p>
             </div>
-        </footer>
-
-        <script src="./api.js">
-        </script>
-        <script src="./page-functions.js">
-        </script>
+        </footer> -->
+        <script type='module' src="../javascript/app.js"></script>
     </body>
 </html>

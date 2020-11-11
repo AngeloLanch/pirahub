@@ -74,7 +74,7 @@ p, label {
     border: 1px solid #dadce0;
     border-radius: 50px;
     overflow: hidden;
-    height: 45px;
+    height: 60px;
     align-items: center;
     width: 100%;
 }
@@ -103,25 +103,35 @@ p, label {
     fill: #5f6368;
 }
 
+.filter.sortFilterMarginBottom {
+    margin-bottom: 200px;
+}
+
 .filterButton,
 .filterTypeLabel {
     font-family: monospace;
     font-size: 20px;
     color: #5f6368;
-    padding: 5px 25px;
+    padding: 15px 25px;
     min-width: 0;
     border: 2px solid #dadce0;
     border-radius: 50px;
-    height: 45px;
+    height: 60px;
     background: #fff;
     width: 100%;
     outline-color:  transparent;
+}
+
+.filterButton.sharpBorder {
+    border-radius: 23px 23px 0px 0px;
 }
 
 .filterTypeLabel {
     border-width: 0px 0px 1px 0px;
     padding: 0;
     border-radius: 0;
+    display: flex;
+    align-items: center;
 }
 
 .optionsTypeBox {
@@ -133,10 +143,10 @@ p, label {
     margin-right: 10px;
 }
 
-.orderBox {
+.sortBox {
     display: none;
     position: absolute;
-    top: 44px;
+    top: 57px;
     border-radius: 0 0 20px 20px;
     border: 1px solid #dadce0;
     overflow: hidden;
@@ -146,7 +156,7 @@ p, label {
 }
 
 .optionsTypeBox div, 
-.orderBox div {
+.sortBox div {
     background: #FFF;
     width: 100%;
     border: none;
@@ -154,12 +164,12 @@ p, label {
     padding: 15px;
 }
 
-.orderBox button {
+.sortBox button {
     background: #FFF;
     width: 100%;
 }
 
-.orderBox button:last-child {
+.sortBox button:last-child {
     border: none;
 }
 
@@ -285,6 +295,20 @@ p, label {
     
 }
 
+.modalBg {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 3;
+}
+
+.modalUserCard {
+    
+}
+
+.modarlIserBio {
+
+}
+
 @media (min-width: 575px) {
     .brandBox {
         text-align: left;
@@ -321,15 +345,33 @@ p, label {
         min-width: 250px;
     }
 
+    .filterButton, 
+    .filterTypeLabel {
+        padding: 0 25px;
+        height: 45px;
+    }
+
+    .filter.sortFilterMarginBottom {
+        margin-bottom: 0px;
+    }
+
     .filterTypeLabel {
         display: flex;
         align-items: center;
-        padding-bottom: 10px;
+        padding-bottom: 0px;
         padding-left: 15px;
     }
 
     .filterBox {
         flex-direction: row-reverse;
+    }
+
+    .searchBar {
+        height: 45px;
+    }
+
+    .sortBox {
+        top: 48px;
     }
 
     .typeFilter {
