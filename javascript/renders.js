@@ -89,17 +89,8 @@ export function userCardRender(user) {
 
     let resultSection = document.querySelector('#resultSection');
     let resultSectionHTML = resultSection.innerHTML;
+    
     resultSection.innerHTML = modelUserCard + resultSectionHTML;
-};
-
-export function sortFilterRender(sortedUsers) {
-    let resultSection = document.querySelector('#resultSection');
-    resultSection.innerHTML = '';
-
-    sortedUsers.forEach(user => {
-        let resultSectionHTML = resultSection.innerHTML;
-        resultSection.innerHTML = user.outerHTML + resultSectionHTML
-    });
 };
 
 export function UserDetailsModalRender(userElement) {

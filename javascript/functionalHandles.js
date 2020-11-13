@@ -1,17 +1,17 @@
-import { filterByAllType, 
-        filterByOrganizationType, 
-        filterByUserType, 
-        openUserDetailsModal, 
-        search,
-        sortByFollowers,
-        sortByRegisterDate,
-        sortByRepositories,
-    } 
+import { 
+    filterByAllType,
+    filterByUserType, 
+    openUserDetailsModal, 
+    search, 
+    sortByFollowers, 
+    sortByRegisterDate, 
+    sortByRepositories } 
     from './functionalities.js';
 
 export function searchHandle() {
-    let filter = document.querySelector('#filter');
-    filter.addEventListener("input", search);
+    let searchButton = document.querySelector('#searchButton');
+
+    searchButton.addEventListener("click", search);
 };
 
 export function filterByUserTypeHandle() {
@@ -21,7 +21,7 @@ export function filterByUserTypeHandle() {
 
 export function filterByOrganizationTypeHandle() {
     let organizationFilter = document.querySelector('#organization');
-    organizationFilter.addEventListener('click', filterByOrganizationType)
+    organizationFilter.addEventListener('click', filterByUserType)
 };
 
 export function filterByAllTypeHandle() {

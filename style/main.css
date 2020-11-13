@@ -1,0 +1,90 @@
+
+.resultSection {
+    margin: 35px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid #dadce0;
+    border-radius: 1rem;
+}
+
+.userCard {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 32px 25px 25px;
+    margin-bottom: 40px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.08);
+    border-radius: 1.2rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.userCard p {
+    font-family: cursive;
+    font-size: 22px;
+}
+
+.userCard > div{
+    width: 100%;
+    overflow: hidden;
+}
+
+.userInfos {
+    margin-bottom: 20px;
+}
+
+.userImage {
+    box-shadow: 0px 6px 6px rgba(0, 255, 255, 0.1);
+    margin: 0 auto;
+    border-radius: 1.2rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    min-width: 7rem;
+    width: 7rem;
+}
+
+.userImage img {
+    width:100%
+}
+
+.userBasicInfos {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 20px 0 0;
+}
+
+.userName {
+    margin-bottom: 15px;
+}
+
+.userDetails {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.userDetails p {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    min-width: 220px;
+}
+
+.userDetails span {
+    display: flex;
+    margin-right: 15px;
+}
+
+#userCreatedAt {
+    display: none;
+}
+
+.userBio {
+    /* padding: 10px 0 35px; */
+    height: 100%;
+    max-height: 0;
+    display: none;
+}

@@ -1,5 +1,5 @@
-import { getAllUsers } from './api.js';
-import { modifySortByButtomHandle, openSortBoxHandle } from './styleFunctionalitiesHandles.js';
+import { getAllUsers } from './javascript/api.js';
+import { modifySortByButtomHandle, openSortBoxHandle } from './javascript/styleFunctionalitiesHandles.js';
 import {filterByAllTypeHandle, 
         filterByOrganizationTypeHandle, 
         filterByUserTypeHandle, 
@@ -8,7 +8,7 @@ import {filterByAllTypeHandle,
         sortByFollowersHandle, 
         sortByRegisterDateHandle, 
         sortByRepositoriesHandle } 
-        from './functionalHandles.js';
+        from './javascript/functionalHandles.js';
 
 getAllUsers();
 

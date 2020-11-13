@@ -1,0 +1,28 @@
+
+@media (min-width: 575px) {
+    .brandBox {
+        text-align: left;
+    }
+
+    .mainBox{
+        padding: 0px 60px 48px;
+        max-width: 1528px;
+        margin: 0 auto;
+    }
+
+    .userDetails {
+        justify-content: center;
+    }
+
+    .userDetails p {
+        justify-content: center;
+    }
+
+    .userDetails {
+        justify-content: center;
+    }
+
+    .authorBox {
+       flex-direction: row;
+    }
+}

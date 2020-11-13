@@ -1,7 +1,8 @@
 {
-  "name": "API_Js",
+  "name": "Pirahub",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "angelo <angelo.pjsol@gmail.com>",
+  "repository": "https://github.com/AngeloLanch/pirahub.git",
+  "author": "Angelo <angelo.pjsol@gmail.com>",
   "license": "MIT"
 }

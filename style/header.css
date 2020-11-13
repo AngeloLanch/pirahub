@@ -1,0 +1,153 @@
+.mainBox{
+    padding: 0px 16px 48px;
+}
+
+.headerBox {
+    border-bottom: 1px solid #dadce0;
+}
+
+.brandBox {
+    width: 100%;
+    padding: 18px 60px;
+    background: #FFF;
+    text-align: center;
+}
+
+.searchSection {
+    display: flex;
+    color: white;
+    justify-content: center;
+    margin: 40px 0px 0px;
+}
+
+.filterBox {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.filter { 
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 0;
+    position: relative;
+    flex-direction: column;
+}
+
+.searchBar {    
+    display: flex;
+    min-width: 0;
+    border: 1px solid #dadce0;
+    border-radius: 50px;
+    overflow: hidden;
+    height: 60px;
+    align-items: center;
+    width: 100%;
+}
+
+.searchWriter {
+    min-width: 0;
+    width: 100%;
+}
+.searchWriter input {
+    border: 0;
+    padding: 4px 20px;
+    width: 100%;
+    outline-color:transparent;
+}
+
+.searchIconBox {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    border-left: 1px solid #dadce0;
+}
+
+.searchIcon {
+    display: flex;
+    margin: 0 10px;
+    fill: #5f6368;
+}
+
+.filter.sortFilterMarginBottom {
+    margin-bottom: 200px;
+}
+
+.filterButton,
+.filterTypeLabel {
+    font-family: monospace;
+    font-size: 20px;
+    color: #5f6368;
+    padding: 15px 25px;
+    min-width: 0;
+    border: 2px solid #dadce0;
+    border-radius: 50px;
+    height: 60px;
+    background: #fff;
+    width: 100%;
+    outline-color:  transparent;
+}
+
+.filterButton.sharpBorder {
+    border-radius: 23px 23px 0px 0px;
+}
+
+.filterTypeLabel {
+    border-width: 0px 0px 1px 0px;
+    padding: 0;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+}
+
+.optionsTypeBox {
+    width: 100%;
+    font-size: 20px;
+}
+
+.optionsTypeBox label {
+    margin-right: 10px;
+}
+
+.sortBox {
+    display: none;
+    position: absolute;
+    top: 57px;
+    border-radius: 0 0 20px 20px;
+    border: 1px solid #dadce0;
+    overflow: hidden;
+    width: 100%;
+    font-size: 20px;
+    z-index: 1;
+}
+
+.optionsTypeBox div, 
+.sortBox div {
+    background: #FFF;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #dadce0;
+    padding: 15px;
+}
+
+.sortBox button {
+    background: #FFF;
+    width: 100%;
+}
+
+.sortBox button:last-child {
+    border: none;
+}
+
+.checkbox {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 20px;
+}
+
+.checkbox > div {
+    margin: 0 5px;
+}
+
