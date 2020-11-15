@@ -1,4 +1,6 @@
-export function userCardRender(user) {
+import { hiddenLoader, enableScroll } from './functionalities.js';
+
+export function userCardRender(userList) {
     let followersIcon = `<svg id="Capa_1" enable-background="new 0 0 512 512" height="32" 
     viewBox="0 0 512 512" width="32" xmlns="http://www.w3.org/2000/svg" 
     xmlns:xlink="http://www.w3.org/1999/xlink"><linearGradient id="SVGID_1_" 
@@ -64,33 +66,40 @@ export function userCardRender(user) {
     8.994h251.836c4.971 0 8.994-4.023 8.994-8.994 
     0-74.395-60.517-135.512-134.912-135.512s-134.912 61.117-134.912 135.512z" 
     fill="url(#SVGID_3_)"/></g></g></svg>`;
-    let modelUserCard = ` 
-    <div class="userCard">
-        <div class="userInfos">
-            <div class="userImage">
-                <img src="${user.avatar_url}"/>
-            </div>
-            <div class="userBasicInfos">
-                <div class="userName">
-                    <p>${user.name}</p>
-                </div>
-                <div class="userDetails">
-                    <p id="followers" followers="${user.followers}"><span>${followersIcon}</span>${user.followers} followers</p>
-                    <p id="repositories" repositories="${user.public_repos}"><span>${reposIcon}</span>${user.public_repos} repos</p>
-                    <p id="userType" value="${user.type}"><span>${typeIcon}</span>${user.type}</p>
-                    <p id="userCreatedAt" registerdate="">${user.created_at}</p>
-                </div>
-            </div>
-        </div>
-        <div class="userBio">
-            <p>Bio<br>${user.bio}</p>
-        </div>
-    </div>`;
 
-    let resultSection = document.querySelector('#resultSection');
-    let resultSectionHTML = resultSection.innerHTML;
+    setTimeout(() => {
+        hiddenLoader();
+        enableScroll();
+
+        userList.forEach(user => {
+            let modelUserCard = ` 
+            <div class="userCard">
+                <div class="userInfos">
+                    <div class="userImage">
+                        <img src="${user.avatar_url}"/>
+                    </div>
+                    <div class="userBasicInfos">
+                        <div class="userName">
+                            <p>${user.name}</p>
+                        </div>
+                        <div class="userDetails">
+                            <p id="followers" followers="${user.followers}"><span>${followersIcon}</span>${user.followers} followers</p>
+                            <p id="repositories" repositories="${user.public_repos}"><span>${reposIcon}</span>${user.public_repos} repos</p>
+                            <p id="userType" type="${user.type}"><span>${typeIcon}</span>${user.type}</p>
+                            <p id="userCreatedAt" registerdate="">${user.created_at}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="userBio">
+                    <p>Bio<br>${user.bio}</p>
+                </div>
+            </div>`;
+            let cardsSection = document.querySelector('#cardsSection');
+            let cardsSectionHTML = cardsSection.innerHTML;
     
-    resultSection.innerHTML = modelUserCard + resultSectionHTML;
+            cardsSection.innerHTML = cardsSectionHTML + modelUserCard;        
+        });
+    }, 1500);
 };
 
 export function UserDetailsModalRender(userElement) {

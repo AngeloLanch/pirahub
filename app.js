@@ -7,7 +7,8 @@ import {filterByAllTypeHandle,
         searchHandle, 
         sortByFollowersHandle, 
         sortByRegisterDateHandle, 
-        sortByRepositoriesHandle } 
+        sortByRepositoriesHandle,
+        infinityScrollHandle } 
         from './javascript/functionalHandles.js';
 
 getAllUsers();
@@ -22,6 +23,7 @@ sortByFollowersHandle();
 sortByRepositoriesHandle();
 
 modifySortByButtomHandle();
+infinityScrollHandle();
 
 setTimeout(() => {
     openUserDetailsModalHandle();

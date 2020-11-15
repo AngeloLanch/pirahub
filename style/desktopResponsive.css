@@ -51,11 +51,13 @@
     }
 
     .resultSection {
+        padding: 35px 40px 40px 40px;
+    }
+
+    .cardsSection {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-gap: 40px;
-        order: 2;
-        padding: 35px 40px 40px 40px;
     }
 
     .userCard {
@@ -77,5 +79,9 @@
     .userBasicInfos {
         margin: 0 auto;
         padding-left: 15px;
+    }
+
+    .loader {
+        margin: 72px auto 0;
     }
 }

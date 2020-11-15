@@ -5,7 +5,8 @@ import {
     search, 
     sortByFollowers, 
     sortByRegisterDate, 
-    sortByRepositories } 
+    sortByRepositories,
+    infinityScroll } 
     from './functionalities.js';
 
 export function searchHandle() {
@@ -42,6 +43,10 @@ export function sortByFollowersHandle() {
 export function sortByRepositoriesHandle() {
     let reposOption = document.querySelector('#repositoriesNumber');
     reposOption.addEventListener('click', sortByRepositories);
+}
+
+export function infinityScrollHandle() {
+    window.addEventListener('scroll', infinityScroll);
 }
 
 export function openUserDetailsModalHandle() {
