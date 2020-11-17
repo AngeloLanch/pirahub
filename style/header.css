@@ -75,6 +75,10 @@
     margin-bottom: 200px;
 }
 
+.filterButtonBox {
+    width: 295px;
+}
+
 .filterButton,
 .filterTypeLabel {
     font-family: monospace;
@@ -87,7 +91,7 @@
     height: 60px;
     background: #fff;
     width: 100%;
-    outline-color:  transparent;
+    outline-width: 0px;
 }
 
 .filterButton:hover {
@@ -124,7 +128,7 @@
     border: 1px solid #dadce0;
     overflow: hidden;
     width: 100%;
-    font-size: 20px;
+    font-size: 19px;
     z-index: 1;
 }
 
@@ -134,7 +138,7 @@
     width: 100%;
     border: none;
     border-bottom: 1px solid #dadce0;
-    padding: 15px;
+    padding: 12px 15px;
 }
 
 .sortBox button {

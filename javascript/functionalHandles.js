@@ -1,12 +1,14 @@
 import { 
     filterByAllType,
     filterByUserType, 
-    openUserDetailsModal, 
+    openUserModal, 
     search, 
     sortByFollowers, 
     sortByRegisterDate, 
     sortByRepositories,
-    infinityScroll } 
+    modifySortByButtonBorder, 
+    openSortBox,
+    infinityScroll} 
     from './functionalities.js';
 
 export function searchHandle() {
@@ -33,26 +35,35 @@ export function filterByAllTypeHandle() {
 export function sortByRegisterDateHandle() {
     let dateOption = document.querySelector('#registerDate');
     dateOption.addEventListener('click', sortByRegisterDate);
-}
+};
 
 export function sortByFollowersHandle() {
     let followersOption = document.querySelector('#followersNumber');
     followersOption.addEventListener('click', sortByFollowers);
-}
+};
 
 export function sortByRepositoriesHandle() {
     let reposOption = document.querySelector('#repositoriesNumber');
     reposOption.addEventListener('click', sortByRepositories);
-}
+};
+
+export function openSortBoxHandle() {
+    let clickedOrderBy = document.querySelector('#sortBy');
+    clickedOrderBy.addEventListener('click', openSortBox);
+};
+
+export function modifySortByButtonBorderHandle() {
+    let sortBy = document.querySelector('#sortBy');
+    sortBy.addEventListener('click', modifySortByButtonBorder)
+};
 
 export function infinityScrollHandle() {
     window.addEventListener('scroll', infinityScroll);
-}
+};
 
-export function openUserDetailsModalHandle() {
-    let userDetails = document.querySelectorAll('.userCard');
-
-    userDetails.forEach(user => {
-        user.addEventListener('click', openUserDetailsModal); 
+export function userModalHandle() {
+    let users = document.querySelectorAll('.userCard');
+    users.forEach(element => {
+        element.addEventListener('click', openUserModal);
     });
-}
+};

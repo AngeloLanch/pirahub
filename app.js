@@ -1,14 +1,15 @@
 import { getAllUsers } from './javascript/api.js';
-import { modifySortByButtomHandle, openSortBoxHandle } from './javascript/styleFunctionalitiesHandles.js';
 import {filterByAllTypeHandle, 
         filterByOrganizationTypeHandle, 
         filterByUserTypeHandle, 
-        openUserDetailsModalHandle, 
+        userModalHandle, 
         searchHandle, 
         sortByFollowersHandle, 
         sortByRegisterDateHandle, 
         sortByRepositoriesHandle,
-        infinityScrollHandle } 
+        infinityScrollHandle,
+        modifySortByButtonBorderHandle, 
+        openSortBoxHandle } 
         from './javascript/functionalHandles.js';
 
 getAllUsers();
@@ -22,9 +23,10 @@ sortByRegisterDateHandle();
 sortByFollowersHandle();
 sortByRepositoriesHandle();
 
-modifySortByButtomHandle();
+modifySortByButtonBorderHandle();
 infinityScrollHandle();
 
 setTimeout(() => {
-    openUserDetailsModalHandle();
+    userModalHandle();
+    console.log('foi');
 }, 3000)
