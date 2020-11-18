@@ -8,7 +8,8 @@ import {
     sortByRepositories,
     modifySortByButtonBorder, 
     openSortBox,
-    infinityScroll} 
+    infinityScroll,
+    closeUserModal } 
     from './functionalities.js';
 
 export function searchHandle() {
@@ -67,3 +68,9 @@ export function userModalHandle() {
         element.addEventListener('click', openUserModal);
     });
 };
+
+export function closeModalHandle() {
+    let modalBackground = document.querySelector('#userModal');
+    console.log('hANDLE');
+    modalBackground.addEventListener('click', closeUserModal)
+}

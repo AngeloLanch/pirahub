@@ -6,6 +6,8 @@ import {
     getAllUsersSortedByRepositories, 
     getAllUsers } 
     from './api.js';
+
+import { userModalHandle } from './functionalHandles.js'
 import { userModalRender } from './renders.js';
 
 let page = 1;
@@ -83,6 +85,7 @@ export function infinityScroll() {
         disableScroll();
         hiddenLoader();
         getAllUsers(page);
+        userModalHandle();
     }
 }; 
   
@@ -114,8 +117,13 @@ function cleanCardScreen() {
 };
 
 export function openUserModal() {
-    userModalRender(this);
     let modal = document.querySelector('#userModal');
     modal.classList.add('openUserModal');
-    
+    userModalRender(this);
+}
+
+export function closeUserModal() {
+    console.log('func');
+    let modal = document.querySelector('#userModal');
+    modal.classList.remove('openUserModal');
 }

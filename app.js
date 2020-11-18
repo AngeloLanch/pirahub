@@ -2,7 +2,7 @@ import { getAllUsers } from './javascript/api.js';
 import {filterByAllTypeHandle, 
         filterByOrganizationTypeHandle, 
         filterByUserTypeHandle, 
-        userModalHandle, 
+        closeModalHandle, 
         searchHandle, 
         sortByFollowersHandle, 
         sortByRegisterDateHandle, 
@@ -24,9 +24,6 @@ sortByFollowersHandle();
 sortByRepositoriesHandle();
 
 modifySortByButtonBorderHandle();
-infinityScrollHandle();
+closeModalHandle()
 
-setTimeout(() => {
-    userModalHandle();
-    console.log('foi');
-}, 3000)
+infinityScrollHandle();
